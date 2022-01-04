@@ -62,3 +62,6 @@ button{
     color: aliceblue;
     width: 100px;
 }
+button:hover{
+    background-color: rgb(250, 105, 33);
+}
