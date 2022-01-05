@@ -1,0 +1,25 @@
+{
+  "name": "user_auth",
+  "version": "1.0.0",
+  "description": "User Authentication system",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hansh-1484519/User_Authentication.git"
+  },
+  "author": "Hansh Raj Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hansh-1484519/User_Authentication/issues"
+  },
+  "homepage": "https://github.com/Hansh-1484519/User_Authentication#readme"
+}
