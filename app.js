@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const { Schema } = mongoose;
 
 dotenv.config();
 
@@ -44,6 +45,16 @@ app.get('/login', function(req, res) {
     res.sendFile('login.css', {root: __dirname })
 }); 
  */
+const userSchema = new Schema(
+  {
+    username : String
+  }
+)
+const user = mongoose.model( 'user' , userSchema);
+
+const raj  = new user( { username : "Raj"})
+console.log( raj.username);
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
