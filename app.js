@@ -4,6 +4,7 @@ const port = 3000
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const { Schema } = mongoose;
+const user = require('Models/user')
 
 dotenv.config();
 
