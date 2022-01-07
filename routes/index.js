@@ -7,4 +7,8 @@ const router = express.Router();
 router.get('/' , (req , res) => {
     res.render("welcome");
 })
+
+router.get('/reg' , (req , res) => {
+    res.render('register');
+})
 module.exports = router;
