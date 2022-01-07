@@ -1,26 +1,23 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="register.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="card">
-        <h1>Register</h1>
+        <h1>Login</h1>
         <div class="form">
-            <form action="/app/register" method="POST" return = "false" >
+            <form action = "/users/login" method = "POST">
                 <label>Username : </label> <input type="text" id="username" placeholder="username">
-                <label>Email : </label> <input type="text" id="email" placeholder="email">
                 <label>Password : </label> <input type="text" id="password" placeholder="password">
-                <button type="submit">Register</button>
-                <a href="login.html" class = "button">Log In</a>
+                <button type="submit">Log In</button>
+                <a href="register.html" class = "button">Register</a>
             </form>
         </div>
-        <script src="register.js"></script>
     </div>
-    
+    <script src="login.js"></script>
 </body>
 </html>

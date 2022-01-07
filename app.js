@@ -69,7 +69,13 @@ app.get('/login', function(req, res) {
     res.sendFile('login.css', {root: __dirname })
 }); 
  */
-app.use('/', require('./routes/index'))
+app.post('/register' , (req , res) => {
+  res.send("hello");
+}) 
+
+
+app.use('/', require('./routes/index'));
+app.use('/users' , require('./routes/users'));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
