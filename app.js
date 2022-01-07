@@ -5,7 +5,8 @@ const port = 3000
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const user = require('./Models/user')
-
+const expressEjsLayout = require('express-ejs-layouts')
+const path = require('path')
 
 dotenv.config();
 
@@ -17,9 +18,12 @@ async function main() {
   .then(console.log("Connected to database"));
 }
 
+app.use(express.static(path.join(__dirname, 'public')))
 
+//set view engine as EJS
+app.set('view engine' , 'ejs');
+app.use(expressEjsLayout);
 
-app.use('/', express.static('public'))
 /*
 
 app.get('/', (req, res) => {
@@ -27,7 +31,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.post('/logi' , async (req , res) => {
+app.post('/register.html' , async (req , res) => {
   try{
      // const salt = await bcrypt.genSalt(10);
      // const hashedPassword = await bcrypt.hash(req.body.password, salt);
