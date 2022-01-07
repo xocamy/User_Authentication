@@ -1,4 +1,5 @@
 
+
 const formSubmit = () => {
     var username = document.getElementById('username').value;
     var email = document.getElementById('email').value;
@@ -8,6 +9,6 @@ const formSubmit = () => {
     {
         alert("Please fill the required info!")
     }else{
-        alert(`Your Username is : ${username} and password is : ${password}` )
+        alert(`your username is : ${username} and password is : ${password}`)
     }
 }
