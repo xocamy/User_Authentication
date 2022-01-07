@@ -8,7 +8,7 @@ router.get('/' , (req , res) => {
     res.render("welcome");
 })
 
-router.get('/reg' , (req , res) => {
+router.get('/register' , (req , res) => {
     res.render('register');
 })
 

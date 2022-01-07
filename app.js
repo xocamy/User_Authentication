@@ -73,7 +73,7 @@ app.post('/register' , (req , res) => {
   res.send("hello");
 }) 
 
-
+app.use(express.json())
 app.use('/', require('./routes/index'));
 app.use('/users' , require('./routes/users'));
 

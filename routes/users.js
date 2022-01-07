@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose')
 const user = require('../Models/user');
 const router = express.Router();
 
@@ -8,8 +9,9 @@ router.post('/login' , (req ,res) => {
 })
 
 // register handle
-router.post('/register' , ( req , res) => {
-    res.send('Hello');
+router.post('/register' ,  ( req , res) => {
+    const{ username , email , password} = req.body;
+    res.send(`username : ${username} , email : ${email} , password : ${password}`)
 })
 
 // logout
