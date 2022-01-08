@@ -5,13 +5,23 @@ const router = express.Router();
 
 // login handle
 router.post('/login' , (req ,res) => {
-    res.send('Hello');
+    const { username , password} = req.body;
 })
 
 // register handle
-router.post('/register' ,  ( req , res) => {
-    const{ username , email , password} = req.body;
-    res.send(`username : ${username} , email : ${email} , password : ${password}`)
+router.post('/register' , async ( req , res) => {
+    try{
+        const {username,email, password} = req.body;
+        const newUser = new user ({
+            username  : username,
+            email : email,
+            password : password
+        })
+        const User = await newUser.save();
+        res.redirect('users/login');
+    } catch(err) {
+        res.status(500).json(err)
+    }
 })
 
 // logout

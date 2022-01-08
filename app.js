@@ -8,6 +8,7 @@ const user = require('./Models/user')
 const expressEjsLayout = require('express-ejs-layouts')
 const path = require('path')
 
+
 dotenv.config();
 
 // connect to database
@@ -73,7 +74,14 @@ app.post('/register' , (req , res) => {
   res.send("hello");
 }) 
 
-app.use(express.json())
+
+// For parsing application/json
+app.use(express.json());
+  
+// For parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use('/', require('./routes/index'));
 app.use('/users' , require('./routes/users'));
 
