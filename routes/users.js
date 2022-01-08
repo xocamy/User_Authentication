@@ -7,8 +7,22 @@ const router = express.Router();
 router.get('/login' , (req ,res) => {
     res.render('login');
 }) 
-router.post('/login' , (req ,res) => {
-    const { username , password} = req.body;
+router.post('/login' , async (req ,res) => {
+    try{
+
+        const { username , password } = req.body;
+        const User = await user.findOne( { username : username });
+        !User && res.status(400).json('Wrong Credentials !')
+        if( User.username === username && User.password === password){
+            res.send( " You are loged In ");
+        }
+        else{
+            
+            res.send("You have entered a wrong password ");
+        }
+    } catch (err) {
+            res.status(500).json(err);
+    }
 })
 
 // register handle
