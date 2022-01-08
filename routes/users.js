@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose')
 const user = require('../Models/user');
 const router = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const { deleteOne } = require('../Models/user');
 
 // login handle
 router.get('/login' , (req ,res) => {
@@ -13,13 +14,18 @@ router.post('/login' , async (req ,res) => {
 
         const { username , password } = req.body;
         const User = await user.findOne( { username : username });
-        !User && res.status(400).json('Wrong Credentials !')
-        if( User.username === username && User.password === password){
-            res.send( " You are loged In ");
-        }
-        else{
-            
-            res.send("You have entered a wrong password ");
+        !User && res.json('Wrong Credentials !')
+        if(User){
+            bcrypt.compare(password , User.password, (err , isMatch) => {
+                if( err) throw err;
+                if( isMatch )
+                {
+                    res.send( " You are loged In ");
+                }
+                else{      
+                    res.send("You have entered a wrong password ");
+                }
+            })
         }
     } catch (err) {
             res.status(500).json(err);
@@ -34,10 +40,7 @@ router.post('/register' , async ( req , res) => {
         if( !username || !email || !password){
             res.send("fill all the details");
         }
-        else{
-
-            
-            
+        else{     
             const newUser = new user ({
                 username  : username,
                 email : email,
