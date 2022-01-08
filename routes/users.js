@@ -30,23 +30,30 @@ router.post('/login' , async (req ,res) => {
 router.post('/register' , async ( req , res) => {
     try{
        const {username,email, password} = req.body;
-        const saltRounds = 10;
        // Technique 1 (generate a salt and hash on separate function calls):
-       const newUser = new user ({
-           username  : username,
-           email : email,
-           password : password
-        })
-        bcrypt.genSalt(10 , (err , salt) => 
-        bcrypt.hash(newUser.password , salt , (err , hash) => {
-            if( err ) throw err;
-            newUser.password = hash;
-            newUser.save().then((value) => {
-                console.log(value)
-                res.redirect('/login');
-            }).catch( value => console.log( value));
-        }));
-        console.log(newUser.password);
+        if( !username || !email || !password){
+            res.send("fill all the details");
+        }
+        else{
+
+            
+            
+            const newUser = new user ({
+                username  : username,
+                email : email,
+                password : password
+            })
+            bcrypt.genSalt(10 , (err , salt) => 
+            bcrypt.hash(newUser.password , salt , (err , hash) => {
+                if( err ) throw err;
+                newUser.password = hash;
+                newUser.save().then((value) => {
+                    console.log(value)
+                    res.redirect('/login');
+                }).catch( value => console.log( value));
+            }));
+            console.log(newUser.password);
+        }
         //  const User =  newUser.save();
     } catch(err) {
         res.status(500).json(err)
