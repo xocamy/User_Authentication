@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: aqua;
+    background-color: rgb(140, 240, 240);
 }
 
 .container{
@@ -22,7 +22,7 @@ body{
 }
 .container:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    background-color: rgb(250, 209, 170);
+    background-color: rgb(247, 199, 155);
 }
 h1{
     color : rgb(61, 63, 62);
@@ -31,7 +31,7 @@ h1{
 }
 p{
     color: darkslategrey;
-    font-size: 28px;
+    font-size: 25px;
 }
 
 a.button{
@@ -54,8 +54,8 @@ a.button{
     text-align: center;
     font-family:Times, serif;
     margin-bottom: 40px;
-    margin-right: 40px;
-    margin-left: 40px;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 a.button:hover {
     background-color: rgb(255, 103, 77);
