@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const user = require('../Models/user');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const { deleteOne } = require('../Models/user');
 
 // login handle
 router.get('/login' , (req ,res) => {
