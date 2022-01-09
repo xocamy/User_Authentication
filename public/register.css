@@ -63,7 +63,7 @@ button{
     width: 100px;
 }
 button:hover{
-    background-color: rgb(250, 105, 33);
+    background-color: rgb(255, 134, 74);
 }
 a.button{
     -webkit-appearance: button;
@@ -85,4 +85,7 @@ a.button{
     text-align: center;
     font-family:Times, serif;
     margin-bottom: 40px;
+}
+a.button:hover{
+    background-color: rgb(255, 134, 74);
 }
