@@ -50,7 +50,9 @@ input {
     border-radius: 4px;
     text-indent: 5px;
 }
-
+input:invalid{
+    border : 1px dashed red;
+}
 
 button{
     columns: 2 / 3;
