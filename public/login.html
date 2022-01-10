@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,11 +10,11 @@
     <div class="card">
         <h1>Login</h1>
         <div class="form">
-            <form >
-                <label>Username : </label> <input type="text" id="username" placeholder="username">
-                <label>Password : </label> <input type="text" id="password" placeholder="password">
-                <button type="button" onclick="submitForm()">Log In</button>
-                <a href="register.html" class = "button">Register</a>
+            <form action = "/users/login" method = "POST">
+                <label>Username : </label> <input type="text" name = "username" id="username" placeholder="username" required>
+                <label>Password : </label> <input type="password" name = "password" id="password" placeholder="password" required minlength="8">
+                <button type="submit">Log In</button>
+                <a href="/register" class = "button">Register</a>
             </form>
         </div>
     </div>

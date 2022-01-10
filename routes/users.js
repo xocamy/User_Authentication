@@ -40,6 +40,7 @@ router.post('/register' , async ( req , res) => {
        //     res.send("fill all the details");
        // }
        // else{     
+           console.log("user" + username);
            const User = await user.findOne( { username : username });
            if( User ){
                 if( User.email === email)

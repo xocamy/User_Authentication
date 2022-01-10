@@ -11,8 +11,8 @@
         <h1>Login</h1>
         <div class="form">
             <form action = "/users/login" method = "POST">
-                <label>Username : </label> <input type="text" name = "username" id="username" placeholder="username">
-                <label>Password : </label> <input type="text" name = "password" id="password" placeholder="password">
+                <label>Username : </label> <input type="text" name = "username" id="username" placeholder="username" required>
+                <label>Password : </label> <input type="password" name = "password" id="password" placeholder="password" required minlength="8">
                 <button type="submit">Log In</button>
                 <a href="/register" class = "button">Register</a>
             </form>
