@@ -40,21 +40,30 @@ router.post('/register' , async ( req , res) => {
        //     res.send("fill all the details");
        // }
        // else{     
-            const newUser = new user ({
-                username  : username,
-                email : email,
-                password : password
-            })
-            bcrypt.genSalt(10 , (err , salt) => 
-            bcrypt.hash(newUser.password , salt , (err , hash) => {
-                if( err ) throw err;
-                newUser.password = hash;
-                newUser.save().then((value) => {
-                    console.log(value)
-                    res.redirect('/login');
-                }).catch( value => console.log( value));
-            }));
-            console.log(newUser.password);
+           const User = await user.findOne( { username : username });
+           if( User ){
+                if( User.email === email)
+                res.send("User already exists")
+            }
+            else{
+
+                const newUser = new user ({
+                    username  : username,
+                    email : email,
+                    password : password
+                })
+                
+                bcrypt.genSalt(10 , (err , salt) => 
+                bcrypt.hash(newUser.password , salt , (err , hash) => {
+                    if( err ) throw err;
+                    newUser.password = hash;
+                    newUser.save().then((value) => {
+                        console.log(value)
+                        res.redirect('/login');
+                    }).catch( value => console.log( value));
+                }));
+                console.log(newUser.password);
+            }
        // }
         //  const User =  newUser.save();
     } catch(err) {
