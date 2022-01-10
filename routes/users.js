@@ -36,10 +36,10 @@ router.post('/register' , async ( req , res) => {
     try{
        const {username,email, password} = req.body;
        // Technique 1 (generate a salt and hash on separate function calls):
-        if( !username || !email || !password){
-            res.send("fill all the details");
-        }
-        else{     
+       // if( !username || !email || !password){
+       //     res.send("fill all the details");
+       // }
+       // else{     
             const newUser = new user ({
                 username  : username,
                 email : email,
@@ -55,7 +55,7 @@ router.post('/register' , async ( req , res) => {
                 }).catch( value => console.log( value));
             }));
             console.log(newUser.password);
-        }
+       // }
         //  const User =  newUser.save();
     } catch(err) {
         res.status(500).json(err)
