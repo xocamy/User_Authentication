@@ -60,7 +60,8 @@ router.post('/register' , async ( req , res) => {
                     newUser.password = hash;
                     newUser.save().then((value) => {
                         console.log(value)
-                        res.redirect('/login');
+                        res.json(newUser);
+                       // res.redirect('/login');
                     }).catch( value => console.log( value));
                 }));
                 console.log(newUser.password);
